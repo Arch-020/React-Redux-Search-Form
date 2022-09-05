@@ -1,30 +1,14 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
+import { Link } from 'react-router-dom';
 
-import { fetchArticle } from '../../actions/searchActions'
-
-export class ArticleDetails extends Component {
-
-  componentDidMount() {
-    this.props.fetchArticle(this.props.match.params.slug)
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        <div className="container">
-
-          <h2>Article Title</h2>
-
-        </div>
-      </React.Fragment>
-    )
-  }
+const ArticleDetails = () => {
+  return (
+    <div className="container text-center mt-5">
+    <h2>Article Details</h2>
+    <Link to='/' className='btn btn-primary'> Back to Home</Link>
+    </div>
+  )
 }
 
 
-const mapStateToProps = state => ({
-  article: state.articles.article
-})
-
-export default connect(mapStateToProps, { fetchArticle })(ArticleDetails);
+export default ArticleDetails;

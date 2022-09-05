@@ -6,7 +6,7 @@ import store from './store';
 import { BrowserRouter , Route , Routes } from 'react-router-dom';
 
 import Home from './components/home/Home';
-import ArticleDetails from './components/home/Home';
+import ArticleDetails from './components/home/ArticleDetails';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
 
     <Routes>
     <Route exact path="/" element= {<Home />} />
-    <Route exact path="/articles/" element= {<ArticleDetails />} />
+    <Route exact path="/articles/:slug" element= {<ArticleDetails />} />
     </Routes>
     
     </BrowserRouter>
