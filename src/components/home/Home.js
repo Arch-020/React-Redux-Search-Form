@@ -9,7 +9,7 @@ export class Home extends Component {
     return (
       <div className="container">
           <SearchForm/>
-          <br></br>
+          <br/>
           <ArticlesContainer />
          
       </div>
