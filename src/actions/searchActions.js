@@ -22,7 +22,7 @@ export const fetchArticle = slug => dispatch => {
     axios.get(`http://www.newscout.in/api/v1/articles/${slug}/?domain=newscout`)
         .then(response => dispatch({
             type: FETCH_ARTICLE,
-            payload: response.data
+            payload: response.data.body.article
         }))
         .catch(err => console.log(err))
 }
