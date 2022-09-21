@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { searchArticle, fetchArticles } from '../../actions/searchActions'
+import { searchArticle, fetchArticles, setLoading } from '../../actions/searchActions'
 import { connect } from 'react-redux';
 
 
@@ -11,7 +11,8 @@ export class SearchForm extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    this.props.fetchArticles(this.props.text)
+    this.props.fetchArticles(this.props.text);
+    this.props.setLoading();
   }
 
 

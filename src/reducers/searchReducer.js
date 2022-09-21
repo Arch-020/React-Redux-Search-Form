@@ -1,4 +1,4 @@
-import { SEARCH_ARTICLE, FETCH_ARTICLES, FETCH_ARTICLE} from '../actions/types';
+import { SEARCH_ARTICLE, FETCH_ARTICLES, FETCH_ARTICLE, LOADING} from '../actions/types';
 
 const initialState = {
     text: '',
@@ -18,12 +18,19 @@ export default function(state = initialState, action) {
         case FETCH_ARTICLES:
             return {
                 ...state,
-                searchArticles: action.payload
+                searchArticles: action.payload,
+                loading: false
             }
         case FETCH_ARTICLE:
             return {
                 ...state,
-                article: action.payload
+                article: action.payload,
+                loading: false
+            }
+        case LOADING:
+            return {
+                ...state,
+                loading: true
             }
         default:
             return state

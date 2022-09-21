@@ -2,13 +2,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchArticle } from '../../actions/searchActions';
+import { fetchArticle, setLoading } from '../../actions/searchActions';
 import { useParams } from "react-router-dom";
 
 export class ArticleDetails extends Component {
 
   componentDidMount() {
-    this.props.fetchArticle(this.props.params.slug)
+    this.props.fetchArticle(this.props.params.slug);
+    this.props.setLoading();
   }
 
   render() {
@@ -54,6 +55,7 @@ export class ArticleDetails extends Component {
 }
 
 const mapStateToProps = state => ({
+  loading: state.articles.loading,
   article: state.articles.article
 })
 
@@ -68,7 +70,7 @@ const withRouter = WrappedComponent => props => {
   )
 }
 
-export default withRouter(connect(mapStateToProps, { fetchArticle })(ArticleDetails));
+export default withRouter(connect(mapStateToProps, { fetchArticle, setLoading })(ArticleDetails));
 
 
 

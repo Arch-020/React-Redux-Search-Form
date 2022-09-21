@@ -5,16 +5,20 @@ import ArticlesContainer from './ArticlesContainer'
 
 export class Home extends Component {
   render() {
-  
+    const {loading} = this.props;
     return (
       <div className="container">
           <SearchForm/>
           <br/>
-          <ArticlesContainer />
-         
+          {/* <ArticlesContainer /> */}
+          {loading ? <Spinner /> : <ArticlesContainer />}
       </div>
     )
   }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  loading: state.articles.loading
+})
+
+export default connect(mapStateToProps)(Home);

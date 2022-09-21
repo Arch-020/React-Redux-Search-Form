@@ -1,4 +1,4 @@
-import {SEARCH_ARTICLE, FETCH_ARTICLES, FETCH_ARTICLE} from './types';
+import {SEARCH_ARTICLE, FETCH_ARTICLES, FETCH_ARTICLE, LOADING} from './types';
 import axios from 'axios';
 
 
@@ -25,4 +25,10 @@ export const fetchArticle = slug => dispatch => {
             payload: response.data.body.article
         }))
         .catch(err => console.log(err))
+}
+
+export const setLoading = () => {
+    return {
+        type: LOADING
+    }
 }
